@@ -1,15 +1,20 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import heroImg from './assets/hero.png'
+import { ApolloClient, HttpLink, InMemoryCache, gql } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client/react";
 import './App.css'
+
+const client = new ApolloClient({
+  link: new HttpLink({ uri: "https://flyby-router-demo.herokuapp.com/" }),
+  cache: new InMemoryCache(),
+});
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
     <>
-      <section id="center">
+
+      {/* <section id="center">
         <div className="hero">
           <img src={heroImg} className="base" width="170" height="179" alt="" />
           <img src={reactLogo} className="framework" alt="React logo" />
@@ -114,7 +119,7 @@ function App() {
       </section>
 
       <div className="ticks"></div>
-      <section id="spacer"></section>
+      <section id="spacer"></section> */}
     </>
   )
 }
